@@ -1,0 +1,203 @@
+com.ohealthstudio.flatstomachworkout,1.34
+com.himshers.hims,3.11.1
+com.reflectio.io,4.0.0
+com.planetfitness,Varies with device
+com.google.android.apps.fitness,Varies with device
+com.alltrails.alltrails,17.7.1
+com.cashwalklabs.cashwalk,Varies with device
+itech.wearables,1.23
+com.nekosoft.bloodpressurechecker.systolicmonitor,1.1.9
+com.bodyfast,3.23.4
+breastenlarger.bodyeditor.photoeditor,1.26.60
+com.fitbod.fitbod,6.4.5
+com.myfitnesspal.android,Varies with device
+heartratemonitor.heartrate.pulse.pulseapp,1.1.1
+bodyfast.zero.fastingtracker.weightloss,1.6.7
+sixpack.sixpackabs.absworkout,1.1.1
+com.fitnow.loseit,15.2.503
+com.fourtechnologies.mynetdiary.ad,8.3.5
+com.cleanobjects.protectspeedz.boost.android,1.1.5
+com.strava,Varies with device
+com.calm.android,Varies with device
+com.bloodsugar.diabetesapp,1.0.6
+com.winwalk.android,2.5.2
+com.wsl.noom,11.9.0
+net.sumitk.quotesmeditation,10.31
+com.twentythreeandme.app,5.188.0
+pedometer.steptracker.calorieburner.stepcounter,1.2.9
+com.mobile.uhc,2.29.1
+com.vshred,2.5.0
+stepcounter.pedometer.stepstracker,1.0.8
+health.sleep.sounds.tracker.alarm.calm,1.2.8
+loseweight.weightloss.workout.fitness,1.066.68.GP
+net.workout.lose.weight.fitness.fit.coach,6.9.2
+com.yc.gloryfit,3.1.4
+com.getpaired.app,0.790.0
+com.betterhelp,2.21
+com.getsomeheadspace.android,4.146.0
+in.sweatco.app,127.0
+com.popularapp.periodcalendar,Varies with device
+com.runtastic.android,Varies with device
+com.cigna.mobile.mycigna,6.45.0
+relax.sleep.relaxation.sleepingsounds,2.5.3
+musclebooster.workout.home.gym.abs.loseweight,2.19.0
+com.water.reminder.tracker,2.0.9
+com.fun.android.steps,1.0.1
+app.feelsy,3.7.0
+women.workout.female.fitness,1.4.5
+com.stepsappgmbh.stepsapp,4.3.13
+com.gen.workoutme,7.13.0
+bloodsugar.bloodsugarapp.diabetes.diabetesapp,1.1.2
+fitness.home.workout.weight.loss,1.1.0
+dance.fit.zumba.weightloss.danceburn,2.7.0
+com.hevy,1.29.20
+com.uthus.heartrate,0.1.3
+armworkout.armworkoutformen.armexercises,2.2.2
+splits.splitstraining.dothesplits.splitsin30days,1.0.27
+bloodpressure.bloodpressureapp.bloodpressuretracker,1.4.8
+com.garmin.android.apps.connectmobile,4.65.1
+com.ecw.healow,7.0.5
+com.wdjbq.mystep,1.0.5
+io.yuka.android,4.29
+com.finch.finch,3.49.5
+com.tayu.tau.pedometer,5.46
+abs.loseweight.fatburning.home.fitness,1.0.15.0414
+com.outcomes4me,5.4.1
+com.bloodpressurenow.bpapp,1.0.10
+ai.replika.app,11.0.5
+com.groundspeak.geocaching.intro,9.25.1
+sleeptrakcer.sleeprecorder.sleepapp.sleep,1.3.2
+ipnossoft.rma.free,23.5.4
+fasteasy.dailyburn.fastingtracker,1.27.0
+com.watch.life,2.3.11
+com.walkfit.weightloss.steptracker.pedometer,2.38.1
+menloseweight.loseweightappformen.weightlossformen,1.1.5
+org.iggymedia.periodtracker,Varies with device
+com.fancygo.walk.abc,1.0.11
+us.tx.state.hhsc.ytbmobile,6.1.0
+com.topstep.fitcloudpro,1.5.4
+com.basenjiapps.breeze,1.7.0
+com.byeshe.bloodpressure,1.0.7
+com.bloodsugar.healthly.lifestyle,2.1.2
+com.hrd.iam,Varies with device
+com.dailyyoga.inc,8.27.10
+com.weightwatchers.mobile,10.35.0
+com.workout.bmi.exercise.home,1.0.1
+com.mapmywalk.android2,23.7.0
+com.ea.game.pvz2_row,10.4.2
+homeworkout.homeworkouts.noequipment,1.2.3
+bloodpressure.bloodpressureapppro.bloodpressureapp,1.1.2
+appinventor.ai_MAdelSelim.Paranormal_hunter,5.0
+com.fitbit.FitbitMobile,Varies with device
+com.cronometer.android.gold,4.4.0
+com.dreams.sweetdream,1.0.7
+com.note.remindeme.bloodpressure,2.1.7
+com.bowerydigital.bend,3.0.2
+buttocksworkout.hipsworkouts.forwomen.legworkout,1.0.55
+life.simple,6.5.4
+loseweightapp.loseweightappforwomen.womenworkoutathome,1.0.43
+com.lovense.wear,6.0.1
+net.beginners.weight.loss.workout.women.yoga.go,6.9.1
+com.withfeelingai.test,1.2.2
+com.elevatelabs.geonosis,1.72.1
+com.smartwidgetlabs.fitbitandroid,2.3
+com.onepeloton.callisto,Varies with device
+io.a24go.android.dev,Varies with device
+dumbbellworkout.dumbbellapp.homeworkout,1.1.9
+com.jaga.ibraceletplus.aigoband,3.20.7
+com.dexcom.clarity.mobile,2.21.0.120
+com.virginpulse.virginpulse,3.210.1
+com.zerofasting.zero,2.43.0
+com.wombatapps.carbmanager,7.1.11
+com.eatthismuch,Varies with device
+com.wakeup.howear,hw_4.4.9
+com.google.android.apps.health.research.studies,2.7.484994749
+gov.nyc.hra.SelfService,3.4
+com.clue.android,103.0
+gofasting.fastingtracker.fasting.intermittentfasting,1.02.11.0412
+com.yazio.android,8.7.2
+org.kp.m,5.11.1
+itouch.wearables,1.26
+com.eugenecraft.granny,3
+com.heart.rate.bloodpressure,1.5
+es.myrealfood.myrealfood,5.1.32
+com.spotlightsix.zentimerlite2,17.3.9
+com.omronhealthcare.omronconnect,7.12.0
+com.workout.routine.fitness.daily,1.0.3
+com.bememultiplatform.android,3.2.6
+com.hrd.motivation,Varies with device
+com.sevegame.calorie,1.3.3
+com.veepoo.hband,9.7.2
+com.vibrator.massage,1.3.8
+com.bloodpressuremonitor.bloodpressure.bloodpressuretracker,1.0
+com.fiton.android,Varies with device
+com.lianhezhuli.hyfit,3.3.14
+com.granny.mods.mcpe.new,3
+strong.vibrator.massage.vibration.forwomen,1.1.6
+com.moodtools.cbtassistant.app,5.3.11
+com.sec.android.app.shealth,6.23.3.003
+com.nike.plusgps,Varies with device
+com.medco.medcopharmacy,12.4.1
+com.ohealthstudio.buttocksworkoutforwomen,2.6
+losebellyfat.flatstomach.absworkout.fatburning,1.5.4
+com.nike.ntc,6.42.0
+is.vertical.ptsdcoach,3.5
+com.bloodsugar.tracker.checkglucose,1.0.17
+drinkingwaterreminder.waterintake.waterperday.drinkwaterapp,1.2.8
+com.livestrong.tracker,3.5.4(4)
+com.ridewithgps.mobile,Varies with device
+workoutforwomen.femalefitness.womenworkout.loseweight,1.1.10
+com.run.health.pedometer,1.0.6
+com.ifit.wolf,2.6.84
+com.voidpet,1.9.3
+fitness.online.app,2.16.1
+org.monroeinstitute.expand,1.1.9
+com.northcube.sleepcycle,Varies with device
+com.amomedia.madmuscles,2.10.2
+com.ellisapps.itrackbitesplus,8.0
+com.selectcomfort.SleepIQ,4.8.20
+com.humana.myhumana,3.0.24
+com.tellmewow.focus,2.6.7
+de.komoot.android,Varies with device
+stretching.stretch.exercises.back,2.0.4
+com.gymdone.gymworkouttrainer,8.5.2
+com.mapmyrun.android2,23.7.0
+com.datechnologies.tappingsolution,3.14.0
+org.na.naapp,9.9
+gymworkout.gym.gymlog.gymtrainer,1.1.10
+com.bloodsugarmonitor.diabetes.bloodsugar,1.0.1
+com.codeway.couplesapp,1.3.5
+com.mcneil.zyrtec.allergycast.activity,6.12.0
+com.mindbodyonline.connect,7.45.3
+legworkout.forwomen.buttocksworkout_hipsworkouts,17.1.1
+com.hingehealth.phoenix,1.121.1
+com.amazon.healthtech.malibu,Varies with device
+com.lafitness.lafitness,LAF_1.215
+com.evolve.ai.soulmate.chatbot,1.0742
+yogaworkout.dailyyoga.go.weightloss.loseweight,1.3.5
+com.sleepwave.app,1.6.0
+periodtracker.pregnancy.ovulationtracker,1.089.GP
+com.ideawork.icrunch,5.9.4
+com.diabetestracker.bloodsugarmonitor.bloodsugarchecker,1.0.3
+com.sizestream.sah,3.4.4
+com.iqvia.chus.allergyplus,1.8.3
+com.yc.gloryfit,3.1.4
+com.racejoy.racejoy,3.1.298
+com.sillens.shapeupclub,Varies with device
+com.xiaomi.wearable,3.15.3i
+com.pedometerclub.asd,1.0.4
+com.avibra,12.14
+co.thefabulous.app,3.76
+com.remind.drink.water.hourly,20.0
+bot.touchkin,3.2.1
+com.measurement.com,1.0.5
+cn.fitdays.fitdays,1.13.8
+com.medbridgeed.hep.go,4.2.1
+com.veryfit2hr.second,3.3.14
+com.welltory.client.android,4.4.1
+sleepsounds.relaxandsleep.whitenoise,1.1.1.53
+bloodpressuremonitor.bloodpressureapp.bpmonitor,1.6.2
+de.fastic.app,1.128.1
+pilatesworkouts.loseweight.dailyyoga,3.1.2
+com.fatsecret.android,Varies with device
+running.tracker.gps.map,1.3.7
