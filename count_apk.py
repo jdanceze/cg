@@ -1,6 +1,6 @@
 import os
 
-dir_path = "/Users/jdanceze/Downloads/dating_100"
+dir_path = "/Users/jdanceze/Downloads/apk/sport_tool_tran_wea_auto1_auto2"
 count = 0
 
 for root, dirs, files in os.walk(dir_path):
