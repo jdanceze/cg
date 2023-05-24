@@ -12,8 +12,8 @@ import webbrowser
 
 #target = sys.argv[1]
 #page_num = 48
-category = "MUSIC_AND_AUDIO"
-target = "music_audio"
+category = "TRAVEL_AND_LOCAL"
+target = "travel_local"
 
 #read old package names from txt file
 old_package_names = []

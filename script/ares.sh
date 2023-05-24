@@ -8,7 +8,7 @@ apk_list=$1
 adb devices
 sleep 2
 echo "Input apk list: $apk_list"
-
+export PYTHONPATH="/workspace/ARES"
 # Loop over APK paths in the list
 for apk_path in $(cat "$apk_list"); do
     /workspace/ella-master6/ella.sh s
@@ -33,7 +33,7 @@ for apk_path in $(cat "$apk_list"); do
     
     echo "Running ARES..."
     echo $apk_path >> /workspace/progress/6/start_apk6.txt
-    python3 parallel_exec.py --list_devices "25_86" --appium_ports "4723"  --android_ports "5554" --path "/workspace/ARES/rl_interaction/apk_dir/$apk_name" --timer 60 --rotation --save_policy --emu headless --platform_version 7.1  --iterations 1 --algo SAC --timesteps 4000 --trials_per_app 3
+    python3 /workspace/ARES/rl_interaction/parallel_exec.py --list_devices "25_86" --appium_ports "4723"  --android_ports "5554" --path "/workspace/ARES/rl_interaction/apk_dir/$apk_name" --timer 60 --rotation --save_policy --emu headless --platform_version 7.1  --iterations 2 --algo SAC --timesteps 4000 --trials_per_app 3
     sleep 10
     #/workspace/ella-master5/ella.sh e
     adb -s emulator-5554 emu kill

@@ -3,7 +3,7 @@ import re
 
 build_tools_path = "/Users/jdanceze/Library/Android/sdk/build-tools/33.0.2/aapt"
 #build_tools_path = "aapt"
-apk_dir = "/Users/jdanceze/Downloads/apk/foodT234_houseT12"
+apk_dir = "/Users/jdanceze/Downloads/apk/socialT4_sportsT1234_toolT1"
 android_version = "19"
 i=0
 num_compatible_apks = 0
