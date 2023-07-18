@@ -1,3 +1,8 @@
+# Background
+- Server: 10.0.104.137
+- username: pattarakritr
+- password: 
+
 # Static Callgraph Generation
 
 ## Prerequisite
@@ -139,7 +144,7 @@ cd /workspace
 This section will explain how to generate the dataset from the output of Sapienz+ella given the `ella_coverage_new.txt` file from the previous step.
 
 ## Prerequisite
-- Container that available for Static Callgraph Generation is -> 90bd08999126
+- Container that available for Dataset Generation is -> 90bd08999126
 
 ## Background
 
