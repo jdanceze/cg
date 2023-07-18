@@ -1,0 +1,10 @@
+/workspace/fdroidEdu/1/de.moekadu.tuner_28.apk
+/workspace/fdroidEdu/1/de.moekadu.metronome_54.apk
+/workspace/fdroidEdu/1/com.cax.pmk.ext_331.apk
+/workspace/fdroidEdu/1/com.jstappdev.identify_dog_breeds_pro_56.apk
+/workspace/fdroidEdu/1/dev.pesic.rpncalc_9.apk
+/workspace/fdroidEdu/1/com.moimob.drinkable_12900.apk
+/workspace/fdroidEdu/1/m.co.rh.id.a_flash_deck_43.apk
+/workspace/fdroidEdu/1/eu.zimbelstern.tournant_11.apk
+/workspace/fdroidEdu/1/com.inspiredandroid.linuxcommandbibliotheca_81.apk
+/workspace/fdroidEdu/1/de.herrmann_engel.rbv_67.apk

@@ -3,7 +3,7 @@ import re
 
 build_tools_path = "/Users/jdanceze/Library/Android/sdk/build-tools/33.0.2/aapt"
 #build_tools_path = "aapt"
-apk_dir = "/Users/jdanceze/Downloads/apk/socialT4_sportsT1234_toolT1"
+apk_dir = "/Users/jdanceze/Downloads/apk/tranT45_travT1234"
 android_version = "19"
 i=0
 num_compatible_apks = 0
@@ -14,8 +14,8 @@ for root, dirs, files in os.walk(apk_dir):
         if filename.endswith(".apk"):
             i+=1
             print(i)
-            #if i!=122  and i!=422:
-            if True:
+            if i!=360:
+            #if True:
                 apk_path = os.path.join(root, filename)
 
 

@@ -1,0 +1,10 @@
+/workspace/fdroidWriting/1/org.billthefarmer.notes_135.apk
+/workspace/fdroidWriting/1/org.billthefarmer.editor_187.apk
+/workspace/fdroidWriting/1/org.billthefarmer.diary_198.apk
+/workspace/fdroidWriting/1/com.adilhanney.saber_130103.apk
+/workspace/fdroidWriting/1/name.bresciani.marco.tkcompanionapp_681.apk
+/workspace/fdroidWriting/1/net.cozic.joplin_2097712.apk
+/workspace/fdroidWriting/1/com.streetwriters.notesnook_10259.apk
+/workspace/fdroidWriting/1/com.appmindlab.nano_1290.apk
+/workspace/fdroidWriting/1/org.tasks_130302.apk
+/workspace/fdroidWriting/1/dev.linwood.butterfly.nightly_64.apk

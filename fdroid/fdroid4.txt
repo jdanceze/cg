@@ -1,0 +1,11 @@
+/workspace/fdroidMulti/1/com.berkersen.practicesuite_121.apk
+/workspace/fdroidMulti/1/com.podverse.fdroid_82004.apk
+/workspace/fdroidMulti/1/org.billthefarmer.tuner_151.apk
+/workspace/fdroidMulti/1/org.oxycblt.auxio_32.apk
+/workspace/fdroidMulti/1/com.github.cvzi.screenshottile_101.apk
+/workspace/fdroidMulti/1/app.alextran.immich_85.apk
+/workspace/fdroidMulti/1/ua.com.radiokot.photoprism_19.apk
+/workspace/fdroidMulti/1/com.lighttigerxiv.simple.mp_13.apk
+/workspace/fdroidMulti/1/site.leos.apps.lespas_89.apk
+/workspace/fdroidMulti/1/de.ptrlx.oneshot_111.apk
+/workspace/fdroidMulti/1/is.xyz.mpv_31.apk

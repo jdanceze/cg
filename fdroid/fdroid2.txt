@@ -1,0 +1,10 @@
+/workspace/fdroidSport/1/com.jithware.brethap_114.apk
+/workspace/fdroidSport/1/com.nima.mymood_8.apk
+/workspace/fdroidSport/1/hu.vmiklos.plees_tracker_44.apk
+/workspace/fdroidSport/1/m.co.rh.id.a_medic_log_22.apk
+/workspace/fdroidSport/1/com.derdilla.bloodPressureApp_13.apk
+/workspace/fdroidSport/1/com.massive_36165.apk
+/workspace/fdroidSport/1/com.tombursch.kitchenowl_76.apk
+/workspace/fdroidSport/1/com.samco.trackandgraph_300401.apk
+/workspace/fdroidSport/1/io.github.friesi23.mhabit_10.apk
+/workspace/fdroidSport/1/org.kde.bettercounter_30000.apk

@@ -6,10 +6,10 @@ fi
 
 category=$1
 
-for file in /workspace/socialT4_sportsT1234_toolT1/"$category"/*
+for file in /workspace/lifestyle/"$category"/*
 do
     if [[ $file == *.apk ]]; then
         echo "$file"
-        java -jar /workspace/gencallgraphv3.jar --apk "$file" --sdk /usr/lib/android-sdk/platforms --output_file /workspace/socialT4_sportsT1234_toolT1/output/"$category"/"$(basename "$file" .apk)".txt 2>&1 | tee /workspace/socialT4_sportsT1234_toolT1/output/$category/"$(basename "$file" .apk)".log
+        java -jar /workspace/gencallgraphv3.jar --apk "$file" --sdk /usr/lib/android-sdk/platforms --output_file /workspace/lifestyle/output/"$category"/"$(basename "$file" .apk)".txt 2>&1 | tee /workspace/lifestyle/output/$category/"$(basename "$file" .apk)".log
     fi
 done
