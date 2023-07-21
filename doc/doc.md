@@ -10,8 +10,10 @@
 - [Generating dataset](#generating-dataset)
 - [Get method coverage from Ares+ella](#get-method-coverage-from-ares)
 - [Calculate combined dynamic coverage](#calculate-the-combined-dynamic-coverage)
-- Download apk
-- Android emulator with GPU support
+- [Download apk](#apk-download)
+- [Android emulator with GPU support](#emulator-with-gpu)
+- Line coverage
+- [Resource](#resource)
 
 # Static Callgraph Generation
 
@@ -96,8 +98,11 @@ musi_new_parent_prod_shop_soci
 Attach to the container by running `docker attach e90f6f6aed7b`
 ```
 cd /workspace/comics_100
+
 ./spawn_screen.sh
+
 cd /workspace
+
 python3 find_time_from_log.py comics_100
 ```
 
@@ -114,6 +119,7 @@ This section will describe how to get the method coverage from Sapienz+ella.
 - You can start multiple container from the same image. I have create 5 different sets of script to support 5 running instance of Sapienz+ella, so you can start 5 container to run 5 Sapienz+ella.
 
 ## Prerequisite
+- The list of current compatible apk are located in `/mnt/hdd1/pattarakritr/java/compatible_apks.txt` or in the docker container that mount with `-v /mnt/hdd1/pattarakritr/java:/workspace` it is located in `/workspace/compatible_apks.txt` or `compatible_apks.txt` in this document directory.
 - Currently There are 5 instance of container that can run Sapienz+ella. The container id are as follows:
     - container 1 -> 90bd08999126
     - container 2 -> 98fec4845c1d
@@ -370,4 +376,42 @@ python3 comb_result.py /workspace/ella-master4/ella-out/ella_coverage_new.txt /w
 ```
 
 # APK download
+This section will describe how I download the apk.
+
+Background:
+- For downloading apk using `crawler2.py` script it is Mac OS or Linux which has a screen GUI because `webbrowser.open()` that use in the script will open the browser to download the apk.
+
+- The full list of apk that I have download are located in `/mnt/hdd1/pattarakritr/java/apk_location.txt` or in the docker container that mount with `-v /mnt/hdd1/pattarakritr/java:/workspace` it is located in `/workspace/apk_location.txt` or `apk_location.txt` in this document directory.
+
+
+## Detail
+- Get the package name from two website then download according to the package name retrieved
+    1. https://www.androidrank.org/
+    
+        For https://www.androidrank.org/ I use the `package_craw.py` script to reteive the list of apk for each category. You can edit `category = "WEATHER"`in the script to set the target category that want to retreive the package list and set `target = "weather"` to set the name of package list file out. Then you can use `python3 crawler2.py {package list file.txt}` to download the apk from the list of package name. It use 
+    apkpure.com to download the apk. 
+    
+        *For https://www.androidrank.org/ I have retrieve and download all apk for each category under applications section in the website*
+
+    2. https://www.appbrain.com/stats/google-play-rankings/top_free/
+
+        For https://www.appbrain.com You can use `python3 crawler.py` to retrieve the apk for each category. You can edit url in the crawler.py file to fetch for each page. Then you can use `python3 crawler2.py {package list file.txt}` to download the apk from the list of package name.
+
+        *For https://www.appbrain.com/ I have retrieve and download all apk for each category under Top free and United States section in the website*
+
+    
+
 # Emulator with GPU
+ (Face problem)
+- Start the container with `-gpus all --device /dev/kvm` but when start the emulator with `-gpu -host` it is fail.
+- Try following https://medium.com/@SaravSun/running-gui-applications-inside-docker-containers-83d65c0db110 to launch the emulator with GUI but it is fail.
+- Try routing the avd from host machine to the container by following but cannot.
+- Confusion with xauthority https://docs.citrix.com/en-us/linux-virtual-delivery-agent/1912-ltsr/configuration/configure-xauthority.html to manage the display for routing to docker container.
+
+# Resource
+- Time to generate static callgraph. https://docs.google.com/spreadsheets/d/1HINFH7POIZPFMCaorr6xKJI3fEQhnnJvIyzLK0_gEVk/edit?usp=sharing (Static cg time sheet)
+
+- Sapienze Coverage. Gathering the data
+- Ares Coverage. Gathering the data
+- Dynamic Coverage Comparison. https://docs.google.com/spreadsheets/d/17lOGAP8PDgeudMZ_UO1TyahbWgnqqEF5dC3WhMqWPNo/edit?usp=sharing
+- Combined Coverage. https://docs.google.com/spreadsheets/d/1A9HNk5hfu1v2ZkNCaXUvfOnvQsCi4mnZdCcsj5cqKBc/edit?usp=sharing
