@@ -14,7 +14,7 @@ echo "Input apk list: $apk_list"
 # Loop over APK paths in the list
 for apk_path in $(cat "$apk_list"); do
     /workspace/kill_port.sh 23745
-    sleep 5
+    sleep 10
     adb devices
     /workspace/ella-master/ella.sh s
     sleep 5
@@ -32,19 +32,31 @@ for apk_path in $(cat "$apk_list"); do
     fi
     echo $apk_path >> /workspace/progress/1/instrumented_success_apk.txt
     echo "initial emu..."
-    /workspace/sapienz-d0f06c30800332bbafa7cf0ed32379fe1abcad5d/clear.sh
+    timeout 500s /workspace/sapienz-d0f06c30800332bbafa7cf0ed32379fe1abcad5d/clear.sh
     adb push /workspace/sapienz-d0f06c30800332bbafa7cf0ed32379fe1abcad5d/foo.txt /system/foo.txt
     if [ $? -ne 0 ]; then
         echo "Emulator not ready"
         adb -s emulator-5554 emu kill
         echo "Restarting emulator..."
-        /workspace/sapienz-d0f06c30800332bbafa7cf0ed32379fe1abcad5d/clear.sh
+        timeout 500s /workspace/sapienz-d0f06c30800332bbafa7cf0ed32379fe1abcad5d/clear.sh
+        echo $apk_path >> /workspace/progress/1/emu_failed_apk.txt
     fi
     #echo "load start stage"
     #adb emu avd snapshot load start
     echo "Running sapienz..."
     echo $apk_path >> /workspace/progress/1/start_apk.txt
-    timeout 3600s python2 /workspace/sapienz-d0f06c30800332bbafa7cf0ed32379fe1abcad5d/main.py $out_directory/instrumented.apk
+
+    # Execute the command without a static timeout
+    #python2 /workspace/sapienz-d0f06c30800332bbafa7cf0ed32379fe1abcad5d/main.py $out_directory/instrumented.apk &
+    rm /workspace/sapienz_log1.txt
+    python2 /workspace/sapienz-d0f06c30800332bbafa7cf0ed32379fe1abcad5d/main.py $out_directory/instrumented.apk > /workspace/sapienz_log1.txt 2>&1 &
+    # Get the process ID of the command
+    pid=$!
+    /workspace/timer1.sh $pid $apk_path
+
+    # Wait for the termination signal from the other script
+    wait $pid
+
     sleep 10
     echo "calculating coverage..."
     #/workspace/ella-master/ella.sh e

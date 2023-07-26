@@ -1,3 +1,5 @@
+import sys
+
 def read_file(filename):
     result = {}
     with open(filename, 'r') as file:
@@ -23,9 +25,12 @@ def join_files(sap_file, ares_file, comb_file, output_file):
             line = f"{key},{sap_value},{ares_value},{comb_value}\n"
             file.write(line)
 
-# Example usage:
-sap_file = 'sap.txt'
-ares_file = 'ares.txt'
-comb_file = 'comb.txt'
-output_file = 'result.txt'
-join_files(sap_file, ares_file, comb_file, output_file)
+# Read command line arguments
+if len(sys.argv) != 5:
+    print("Usage: python script.py sap_file ares_file comb_file output_file")
+else:
+    sap_file = sys.argv[1]
+    ares_file = sys.argv[2]
+    comb_file = sys.argv[3]
+    output_file = sys.argv[4]
+    join_files(sap_file, ares_file, comb_file, output_file)

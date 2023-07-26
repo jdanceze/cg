@@ -11,8 +11,8 @@
 - [Get method coverage from Ares+ella](#get-method-coverage-from-ares)
 - [Calculate combined dynamic coverage](#calculate-the-combined-dynamic-coverage)
 - [Download apk](#apk-download)
-- [Android emulator with GPU support](#emulator-with-gpu)
-- Line coverage
+- [Android emulator with GPU support]#emulator-with-gpu
+- [Line coverage](#line-coverage)
 - [Resource](#resource)
 
 # Static Callgraph Generation
@@ -134,6 +134,7 @@ This section will describe how to get the method coverage from Sapienz+ella.
 - Please use the same number when running the set of scripts
 - For `./run_dynamic1.sh` The <b><u>output of ella</u></b> is in `/workspace/ella_master/ella-out`
 - other (2-4) `./run_dynamic{number}.sh` The <b><u>output of ella</u></b> is in `/workspace/ella_master{number}/ella-out`
+- `list_of_apk.txt` should contain 15 to 20 apks for each run. I have tried more than that (>20apks) but when initiate the emulator it will fail. So I suggest that you should run 15 to 20 apks for each run then restart the container and run the next 15 to 25 apks.
 
 ## Background
 - `{list_of_apk.txt}` should contain the list of {path-to-apk} that you want to run. The example content of list_of_apk.txt:
@@ -187,6 +188,7 @@ cd /workspace
 # Generating dataset
 This section will explain how to generate the dataset from the output of Sapienz+ella given the `ella_coverage_new.txt` file from the Sapienz+ella or Ares+ella step.
 
+We parse static callgraph from soot static callgraph and dynamic callgraph from ella to the format required by Autopruner. First we use static cg generated from soot convert to csv format that contain ther method signeture of caller and callee. Then we add a label indicate that for each method whether it is executed or not. This information we retrieved from ella. We convert the method signater format from ella to soot format then checked if ther caller and callee method is executed or not. If it is executed we set the label to 1 otherwise 0. Next we add extra features to the this callgraph by using the extra feature generation script the same as Autopruner use. Lastly, Autopruner require the source code for each method so we create a script to lookup the source code for each method signature then put it to the dataset.
 ## Start container from docker image
 - start container from image: `docker run --user=root -v /mnt/hdd1/pattarakritr/java:/workspace --name pattarakrit_and_gpu -it --gpus all --device /dev/kvm apktester/android:v5 /bin/bash`
 
@@ -194,7 +196,7 @@ This section will explain how to generate the dataset from the output of Sapienz
 
 ## Prerequisite
 - Container that available for Dataset Generation is -> 90bd08999126
-
+- The original source code of the dataset generation script is at https://github.com/jdanceze/cg_parser
 ## Background
 
 - There are 5 instance of cg_parser directory that can be use to run. You can start multiple screen session to run each set of cg_parser script.
@@ -408,10 +410,65 @@ Background:
 - Try routing the avd from host machine to the container by following but cannot.
 - Confusion with xauthority https://docs.citrix.com/en-us/linux-virtual-delivery-agent/1912-ltsr/configuration/configure-xauthority.html to manage the display for routing to docker container.
 
+# Line coverage
+(Face problem)
+## Background
+- Using ACVtool https://github.com/pilgun/acvtool
+
+## Using ACVtool with Sapienz
+- Sapienz can run with android version 4.4
+- Following the acvtool instruction in github. When calling `acv start` it error happend as following
+```
+root@e626f2cd895:/workspace/acvtool# python acvtool.py start com.rvappstudios.magnifyingglass
+WARNING: linker: libdvm.so has text relocations. This is wasting memory and is a security risk. Please fix.
+Operation not allowed: java.lang. SecurityException: Can't change android-permission.READ_EXTERNAL_ STORAGE. It is required by the application
+WARNING: linker: libdvm.so has text relocations. This is wasting memory and is a security risk. Please fix.
+Operation not allowed: java.lang. SecurityException: Can't change android permission.WRITE_EXTERNAL_ STORAGE. It is required by the application
+```
+- The logcat of the error is as follows:
+```
+D/AcvInstrumentation ( 2260): onCreate: Obtained instrumentation intent: Bundle [marcelledData.dataSize=52]
+W/System.err( 2260): java.io.IOException: open failed: EROFS (Read-only file system)
+W/System.err 2260):
+at java. io. File. createNewFile(File. java: 946)
+W/System.err ( 2260):
+at tool. ac.AcvInstrumentation.onCreate(acvinstrumentation.java:99)
+W/System.err( 2260):
+at android. app. ActivityThread. handleBindApplication (ActivityThread. java: 4335)
+W/System.err( 2260):
+at android.app.ActivityThread. access$1500 (ActivityThread. java: 135)
+W/System.err ( 2260) :
+at android.app. ActivityThread$H. handleMessage (ActivityThread. java: 1256)
+```
+- The problem may come from `/mnt/sdcard` may not been writable so I change the code to use `/system/` which can be wirtable. But the error still happen as the same.
+
+## Using ACVtool with ARES
+- Runnning with android 8
+- Can work perfectly when running on the emulator with android 8 but when adding the ACVtool pipeline to ARES the ACVtool cannot work.
+- I Add the following code to `test_application.py` in ARES to run ACVtool. However right after the application is launched the ACVtool is terminated.
+```python
+os.system(f'{adb_path} -s {udid} install -t -r {application}')
+os.system("python2 /workspace/acvtool/acvtool.py install " + "/workspace/ARES/rl_interaction/apk_dir/com.rvappstudios.magnifyingglass.apk/instr_com.rvappstudios.magnifyingglass.apk")
+print("after install")
+os.system("screen -dmS cov bash -c 'python2 /workspace/acvtool/acvtool.py start com.rvappstudios.magnifyingglass | tee /workspace/log_instru.txt'")
+os.system("screen -dmS log bash -c 'adb logcat | tee /workspace/log_android.txt'")
+print("after instru")
+time.sleep(10)
+result = subprocess.run(
+    [adb_path, "shell", "su", "0", "find", "/data/data/", "-type", "d", "-name", f'"{my_package}*"'],
+    capture_output=True)
+package = result.stdout.decode('utf-8').strip('\n').rsplit('/')[-1]
+
+```
+- The full logcat is in `log_acv.txt` file in this doc directory
+
+
 # Resource
 - Time to generate static callgraph. https://docs.google.com/spreadsheets/d/1HINFH7POIZPFMCaorr6xKJI3fEQhnnJvIyzLK0_gEVk/edit?usp=sharing (Static cg time sheet)
 
-- Sapienze Coverage. Gathering the data
-- Ares Coverage. Gathering the data
+- Sapienze Coverage + list of apk ran by Sapienz. https://docs.google.com/spreadsheets/d/1lMMpjPRPNUUbfL0EgPWKQDlJbmKuylCqOEhtKNWjKRY/edit?usp=sharing
+- Ares Coverage + list of apk ran by Ares. https://docs.google.com/spreadsheets/d/15o1ZQEr8Wk4XQIdcCg2xClaoQ6Yaa6oQHDEMLc0eZCY/edit?usp=sharing
 - Dynamic Coverage Comparison. https://docs.google.com/spreadsheets/d/17lOGAP8PDgeudMZ_UO1TyahbWgnqqEF5dC3WhMqWPNo/edit?usp=sharing
 - Combined Coverage. https://docs.google.com/spreadsheets/d/1A9HNk5hfu1v2ZkNCaXUvfOnvQsCi4mnZdCcsj5cqKBc/edit?usp=sharing
+- List of all apk: `apk_location.txt` in this doc directory
+- List of all apk that can run with Sapienz (or android 4.4): `compatible_apks_android4.txt` in this doc directory
