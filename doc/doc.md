@@ -406,8 +406,71 @@ Background:
 # Emulator with GPU
  (Face problem)
 - Start the container with `-gpus all --device /dev/kvm` but when start the emulator with `-gpu -host` it is fail.
-- Try following https://medium.com/@SaravSun/running-gui-applications-inside-docker-containers-83d65c0db110 to launch the emulator with GUI but it is fail.
-- Try routing the avd from host machine to the container by following but cannot.
+
+    - run: `emulator -writable-system -avd 19_86 -gpu -no-accel -no-audio -no-boot-anim -no-snapshot-save -no-window -skip-adb-auth -verbose -wipe-data`
+    - error:
+
+    ```
+        ERROR   | OpenGLES emulation failed to initialize. Please consider the following troubleshooting steps:
+
+    1. Make sure your GPU drivers are up to date.
+
+    2. Erase and re-download the emulator ($ANDROID_SDK_ROOT/emulator).
+
+    3. Try software rendering: Go to Extended Controls > Settings > Advanced tab and change "OpenGL ES renderer (requires restart)" to "Swiftshader".
+
+    Or, run emulator from command line with "-gpu swiftshader_indirect". 4. Please file an issue to https://issuetracker.google.com/issues?q=componentid:192727 and provide your complete CPU/GPU info plus OS and display setup.
+    FATAL   | Emulator: exiting becase of the internal error 'OpenGLES emulation failed to initialize. Please consider the following troubleshooting steps:
+
+    1. Make sure your GPU drivers are up to date.
+
+    2. Erase and re-download the emulator ($ANDROID_SDK_ROOT/emulator).
+
+    3. Try software rendering: Go to Extended Controls > Settings > Advanced tab and change "OpenGL ES renderer (requires restart)" to "Swiftshader".
+
+    Or, run emulator from command line with "-gpu swiftshader_indirect". 4. Please file an issue to https://issuetracker.google.com/issues?q=componentid:192727 and provide your complete CPU/GPU info plus OS and display setup.
+    '
+    Aborted (core dumped)
+
+    ```
+    - Then try running with `-gpu swiftshader_indirect` it can run but the result is the same with running without `-gpu swiftshader_indirect`.
+
+- Try routing the emulator inside the docker container to display on the server host machine but cannot connect.
+    - on the server host run: `docker run --user=root -v /mnt/hdd1/pattarakritr/java:/workspace --name pattarakrit_emu -p 5038:5555 -it --gpus all --device /dev/kvm apktester/ares:v1 /bin/bash`
+    - Start the emulator inside the container
+    - On the host server grep the ip adress of the container by running `docker inspect db5f665d92a3 | grep IPAddress`
+    - Use the ip address to connect to the emulator by running `adb connect 172.17.0.25:5555`
+    - Got error: `failed to connect to '172.17.0.25:5555': Connection refused`
+
+
+- Try routing the display from docker container to display the emulator screen inside the docker container.
+    - Start the container with: ` docker run -e DISPLAY=202.161.34.104:0.0 --user=root -v /mnt/hdd1/pattarakritr/java:/workspace --name pattarakrit_and_test -it --gpus all --device /dev/kvm apktester/android:v5 /bin/bash`
+    - In side the container run: `export DISPLAY=202.161.34.104:0.0`
+    - Got the same error
+    ```
+        ERROR   | OpenGLES emulation failed to initialize. Please consider the following troubleshooting steps:
+
+    1. Make sure your GPU drivers are up to date.
+
+    2. Erase and re-download the emulator ($ANDROID_SDK_ROOT/emulator).
+
+    3. Try software rendering: Go to Extended Controls > Settings > Advanced tab and change "OpenGL ES renderer (requires restart)" to "Swiftshader".
+
+    Or, run emulator from command line with "-gpu swiftshader_indirect". 4. Please file an issue to https://issuetracker.google.com/issues?q=componentid:192727 and provide your complete CPU/GPU info plus OS and display setup.
+    FATAL   | Emulator: exiting becase of the internal error 'OpenGLES emulation failed to initialize. Please consider the following troubleshooting steps:
+
+    1. Make sure your GPU drivers are up to date.
+
+    2. Erase and re-download the emulator ($ANDROID_SDK_ROOT/emulator).
+
+    3. Try software rendering: Go to Extended Controls > Settings > Advanced tab and change "OpenGL ES renderer (requires restart)" to "Swiftshader".
+
+    Or, run emulator from command line with "-gpu swiftshader_indirect". 4. Please file an issue to https://issuetracker.google.com/issues?q=componentid:192727 and provide your complete CPU/GPU info plus OS and display setup.
+    '
+    Aborted (core dumped)
+
+    ```
+
 - Confusion with xauthority https://docs.citrix.com/en-us/linux-virtual-delivery-agent/1912-ltsr/configuration/configure-xauthority.html to manage the display for routing to docker container.
 
 # Line coverage
@@ -465,9 +528,16 @@ package = result.stdout.decode('utf-8').strip('\n').rsplit('/')[-1]
 
 # Resource
 - Time to generate static callgraph. https://docs.google.com/spreadsheets/d/1HINFH7POIZPFMCaorr6xKJI3fEQhnnJvIyzLK0_gEVk/edit?usp=sharing (Static cg time sheet)
+    - Did not set any timeout for static cg generation
 
 - Sapienze Coverage + list of apk ran by Sapienz. https://docs.google.com/spreadsheets/d/1lMMpjPRPNUUbfL0EgPWKQDlJbmKuylCqOEhtKNWjKRY/edit?usp=sharing
+    - Android 4.4
+    - Dyanmic run: Start timeout checking after 30 minutes then check coverage every 10 minutes. It will stop, if the coverage does not increase.
+
 - Ares Coverage + list of apk ran by Ares. https://docs.google.com/spreadsheets/d/15o1ZQEr8Wk4XQIdcCg2xClaoQ6Yaa6oQHDEMLc0eZCY/edit?usp=sharing
+    - Android 12
+    - Timeout for each apk is set to 60 minutes
+
 - Dynamic Coverage Comparison. https://docs.google.com/spreadsheets/d/17lOGAP8PDgeudMZ_UO1TyahbWgnqqEF5dC3WhMqWPNo/edit?usp=sharing
 - Combined Coverage. https://docs.google.com/spreadsheets/d/1A9HNk5hfu1v2ZkNCaXUvfOnvQsCi4mnZdCcsj5cqKBc/edit?usp=sharing
 - List of all apk: `apk_location.txt` in this doc directory
