@@ -11,7 +11,7 @@
 - [Get method coverage from Ares+ella](#get-method-coverage-from-ares)
 - [Calculate combined dynamic coverage](#calculate-the-combined-dynamic-coverage)
 - [Download apk](#apk-download)
-- [Android emulator with GPU support]#emulator-with-gpu
+- [Android emulator with GPU support](#emulator-with-gpu)
 - [Line coverage](#line-coverage)
 - [Resource](#resource)
 
